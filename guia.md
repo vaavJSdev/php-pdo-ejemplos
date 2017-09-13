@@ -95,4 +95,23 @@ while ($resultado = $stmt -> fetch()) {
     $nombre = $resultado["nombre"];
     $contrasena = $resultado["contrasena"];
 }
-// 2 Con un for in
+// Resultado
+Victor
+12345
+?>
+```
+
+# 2da Forma
+```php
+$stmt =$conexion->prepare("SELECT * FROM usuarios WHERE id=?");
+$stmt->bindValue(1,$id,PDO::PARAM_INT);
+$stmt->execute();
+// 2 Con un foreach
+$resultado = $stmt->fetch();
+	foreach ($resultado as $llave => $valor) {
+		echo "{$llave} => {$valor} ";
+id => 1 nombre => Victor contraseña => 12345
+	}
+// Resultado
+
+```
